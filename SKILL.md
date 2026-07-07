@@ -52,7 +52,11 @@ This skill will be used by people who aren't designers and may not know what to 
 
 ## Spot illustrations
 
-Illustrations are drawn as SVG following each style's grammar. The workflow matters more than the drawing:
+Illustrations are drawn as SVG following each style's grammar. They are **opt-in, not default** — most pages should have none.
+
+**When to draw one.** Only when the page's text makes one clear conceptual move (a filter, a decision, growth, consolidation) AND the page has room to give the drawing air. Skip pages that already carry a chart or table — they have their visual. Target density: roughly one illustration per 2–3 pages; a 5-page document might have one or two, and zero is a valid answer for data-heavy documents.
+
+The workflow matters more than the drawing:
 
 1. Read the section the illustration accompanies. Find the **cognitive move** — the tension, transformation, comparison, filter, or growth the text describes.
 2. Choose **one metaphor** for it. One idea per graphic. If you need two metaphors, you need two graphics (or zero).
@@ -60,6 +64,16 @@ Illustrations are drawn as SVG following each style's grammar. The workflow matt
 4. Draw it using only the style's allowed vocabulary (shapes, stroke weights, fills — see the style reference). Quality bar: 4–8 elements with deliberate size variation (small/medium/large reads as designed; five same-size shapes reads as clip-art), one focal accent element, everything else quiet, at least 40% empty space. A short caption in the style's caption treatment.
 5. If no honest metaphor exists, skip the illustration. A page without one beats a decorative one.
 6. **Scatter, don't clump.** Illustrations spread across the document — at most one per page, in varied positions: tucked into an opener's empty corner, beside a timeline column, above a closing quote, on a statement page. Never stack them on one "illustrations page," and never give one its own heading (no "Spot illustration" or "The shape of the plan" labels) — an illustration accompanies content with only its caption; a heading turns it into a section and makes it feel bolted on.
+
+**Geometry hygiene** (this is what separates "designed" from "rough"):
+
+- Shapes that should touch must touch *exactly* — compute the tangent point; a 3px gap or accidental overlap reads as sloppy. Shapes that shouldn't touch need clear space between them (≥ half the smaller shape's width).
+- Compose on a coarse grid: centers and edges on multiples of 8–10 SVG units, sizes from a small scale (e.g. radii 6 / 10 / 16 / 24), never arbitrary values like `r="13.7"`.
+- One stroke width per graphic (the style's specified one). Mixed stroke weights inside a single illustration read as errors, not hierarchy — use size and fill for hierarchy.
+- Keep every element inside the viewBox with breathing room; nothing within 8 units of the edge, and the caption never crowds the drawing.
+- Balance the composition's bounding box: if all mass sits in one corner with dead space elsewhere, re-center or crop the viewBox.
+
+**The illustration check** — after the full-document render, re-render each page that has an illustration at higher resolution (`pdftoppm -png -r 130 -f N -l N`) and look at the illustration specifically. Ask: do contact points actually touch? Does it read as one deliberate composition or random scatter? Would you post this crop on its own? If it fails, redraw it once; if it still fails, delete it and let the page breathe — a missing illustration is invisible, a rough one is the first thing readers see.
 
 ## Images
 
