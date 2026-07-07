@@ -1,0 +1,23 @@
+{
+  "skill_name": "pdf-doc",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Create a designed PDF called \"The Q2 Content Report\" for creator Alex Rivera (@alexmakes), in the editorial style. Content: a short intro about Q2 being the first quarter of posting 3x/week; a data table of platform performance (Instagram: 42 posts, 1.2M views, 8,400 new followers; TikTok: 38 posts, 2.1M views, 12,300 new followers; YouTube: 12 posts, 380K views, 2,100 new followers); a bar chart of average views by format (Talking head: 48K, Tutorial: 71K, Behind-the-scenes: 22K); three key stats (3.7M total views, 22,800 new followers, 92 posts); a Q3 to-do list (batch record tutorials, set up email list, test one long-form video per week, retire behind-the-scenes format); a 3-step posting system (1 idea bank Monday, 2 batch record Wednesday, 3 schedule Friday); and a closing line \"Consistency isn't a schedule. It's a system.\" No images provided.",
+      "expected_output": "Multi-page designed PDF in the editorial style (warm paper, vermilion display type, serif italics) containing all listed components",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Create a designed PDF called \"The Q2 Content Report\" for creator Alex Rivera (@alexmakes), in the soft style. [same content as eval 0]",
+      "expected_output": "Same content in the soft style (white, pale-green rounded cards, lime highlighter labels)",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a designed PDF called \"The Q2 Content Report\" for creator Alex Rivera (@alexmakes), in the noir style. [same content as eval 0]",
+      "expected_output": "Same content in the noir style (charcoal grid, lime accents, Playfair with one lime italic word)",
+      "files": []
+    }
+  ]
+}
