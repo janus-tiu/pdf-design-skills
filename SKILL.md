@@ -59,6 +59,7 @@ Illustrations are drawn as SVG following each style's grammar. The workflow matt
 3. Pick the metaphor pattern that fits the move — each style reference lists six (filter, layers, path-with-fork, signal-from-noise, stack, orbit) with construction notes. The template's example SVG is *one* example, not the default: if every illustration in a document is "shape → arrow → shape," that's a failure.
 4. Draw it using only the style's allowed vocabulary (shapes, stroke weights, fills — see the style reference). Quality bar: 4–8 elements with deliberate size variation (small/medium/large reads as designed; five same-size shapes reads as clip-art), one focal accent element, everything else quiet, at least 40% empty space. A short caption in the style's caption treatment.
 5. If no honest metaphor exists, skip the illustration. A page without one beats a decorative one.
+6. **Scatter, don't clump.** Illustrations spread across the document — at most one per page, in varied positions: tucked into an opener's empty corner, beside a timeline column, above a closing quote, on a statement page. Never stack them on one "illustrations page," and never give one its own heading (no "Spot illustration" or "The shape of the plan" labels) — an illustration accompanies content with only its caption; a heading turns it into a section and makes it feel bolted on.
 
 ## Images
 

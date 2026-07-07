@@ -12,6 +12,8 @@ Made by [@janustiu](https://instagram.com/janustiu).
 | <img src="previews/noir.png" width="380"><br>**noir** — charcoal grid, lime accents, Playfair headlines. For kits, playbooks, bold personal-brand freebies. | <img src="previews/blueprint.png" width="380"><br>**blueprint** — one royal blue, mono type, hand-sketched diagrams. For frameworks, workbooks, manifestos. |
 | <img src="previews/modern.png" width="380"><br>**modern** — terracotta cover, staggered grotesque type, flat primary shapes. For guides, ebooks, punchy reports. | |
 
+Every preview above is a real document the skill produced — open the full PDFs in [`examples/`](examples/): a travel guide (editorial), a marketing report (soft), a creator freebie kit (noir), an event production plan (blueprint), and a revenue report (modern).
+
 ## What it does
 
 Every style supports the same components, each with its own visual treatment:
@@ -57,7 +59,7 @@ pdf-design-skill/
 └── scripts/setup_fonts.sh    # downloads + instances all fonts
 ```
 
-Claude reads the style reference, copies the matching template, replaces the content, renders with WeasyPrint, then **looks at every rendered page** and fixes what's off before handing you the file.
+Claude reads the style reference, copies the matching template, replaces the content, renders with WeasyPrint, then **looks at every rendered page** and fixes what's off before handing you the file. The illustration system is inspired by [ian-xiaohei-illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) — rules and vocabulary instead of image generation.
 
 ---
 
