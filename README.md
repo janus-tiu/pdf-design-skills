@@ -20,24 +20,44 @@ Every style supports the same components, each with its own visual treatment:
 
 - Data tables, to-do lists, stat rows, numbered steps, timelines
 - Charts (bar, donut, line) drawn as clean SVG — no chart libraries, no screenshots
-- Rule-based spot illustrations: Claude reads your text, picks a visual metaphor, and draws it in the style's shape vocabulary
+- Simple spot illustrations in each style's shape vocabulary, added only where they fit
 - Your images, placed into the layout by content — or shape compositions when you have none
 
-Claude asks for your content, style pick, and author line, shows you a draft of the cover and one page before building everything, and keeps the source file so you can request edits without starting over.
+Claude prompts you to pick a style first, then asks for your content and author line, shows you a draft of the cover and one page before building everything, and keeps the source file so you can request edits without starting over.
 
 ## Install
 
-You need a paid Claude plan with **Code execution & file creation** enabled (Settings → Capabilities).
+First, download **`pdf-design-skill.skill`** from [Releases](../../releases). Then pick where you use Claude:
 
-**Claude desktop app / Cowork:** download `pdf-design-skill.skill` from [Releases](../../releases), drag it into a Claude chat, and click **Save skill**.
+### Claude desktop app / Cowork
 
-**Claude.ai (web):** download the `.skill` file, rename it to `.zip`, then go to **Settings → Capabilities → Skills → Upload skill** and select it. (The zip must contain the `pdf-design-skill` folder at its root — the release file already does.)
+1. Drag the `.skill` file into any Claude chat.
+2. Click **Save skill** on the file card.
+3. That's it — ask for a designed PDF and the skill kicks in.
 
-**Claude Code:** unzip into your skills folder:
+### Claude.ai (web)
+
+1. Rename the downloaded file from `.skill` to `.zip`.
+2. Go to **Settings → Capabilities**, make sure **Code execution & file creation** is on (requires a paid plan).
+3. Under **Skills**, click **Upload skill** and select the zip. (The zip must contain the `pdf-design-skill` folder at its root — this one already does.)
+
+### Claude Code
 
 ```
 unzip pdf-design-skill.skill -d ~/.claude/skills/
 ```
+
+On macOS, install Pango once so PDF rendering works: `brew install pango`
+
+### OpenAI Codex CLI
+
+Codex supports the same skill format:
+
+```
+unzip pdf-design-skill.skill -d ~/.codex/skills/
+```
+
+Invoke it with `$pdf-design-skill`, the `/skills` selector, or just describe the document you want. Same Pango note applies on macOS.
 
 ## Use it
 
@@ -58,6 +78,8 @@ pdf-design-skill/
 ├── assets/                   # one HTML template per style, every component demonstrated
 └── scripts/setup_fonts.sh    # downloads + instances all fonts
 ```
+
+Claude reads the style reference, copies the matching template, replaces the content, renders with WeasyPrint, then **looks at every rendered page** and fixes what's off before handing you the file.
 
 ---
 

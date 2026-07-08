@@ -24,17 +24,22 @@ If the user doesn't name a style, prompt them to pick one at the start of the co
 This skill will be used by people who aren't designers and may not know what to provide. Run a short intake before building anything:
 
 1. **Style — always the first message.** As soon as the skill triggers, prompt the user to pick their style before anything else, listing all five with their one-line vibes from the table above. If a multiple-choice question tool is available (e.g. AskUserQuestion), use it with the five styles as options; otherwise list them in chat. If their request already hints at content, recommend one ("your content feels like **noir** — bold, opinionated") and make it the first option. Skip the prompt only when they named a style themselves.
-2. **Content** — if they haven't given it, ask for it. If they only have bullet points, offer to draft the copy and say so plainly (otherwise their wording is used verbatim).
-3. **Author line** — name or handle for the footer of every page.
-4. **Images** — ask once: "Have photos or images you want in it? Drop them in and I'll place them. None is fine too." Never ask twice; never generate images.
+2. **Content** — if they haven't given it, ask for it. If they only have bullet points, offer to draft the copy and say so plainly.
+3. **Wording** — ask explicitly: "Want me to polish the wording, or use your text exactly as written?" As-is → typography fixes only (curly quotes, dashes), flag typos rather than fixing them. Polish → tighten and clarify, but keep their voice, facts, and claims — never invent content — and show the rewrite at the draft checkpoint so they can see what changed.
+4. **Author line** — name or handle for the footer of every page.
+5. **Images** — ask once: "Do you want photos or images in the doc? If yes, drop them into this chat and I'll place them where they fit." If they say yes, wait for the uploads before building. Never ask twice; never generate images.
 
 **Draft checkpoint (docs over ~5 pages):** render the cover + one representative content page first, share that 2-page PDF, and confirm the direction before building the rest. Fixing taste at page 2 is cheap; at page 12 it's a rebuild.
 
-**Edit loop:** always keep the `.html` source next to the rendered PDF. When the user asks for changes ("shorter title", "donut instead of bars", "swap page 3 and 4"), edit the source and re-render — never rebuild from scratch. Share the updated PDF after every edit round.
+**Contact-sheet preview:** there is no live preview panel, so make the chat work like one. After every render — draft checkpoint, full build, and each edit round — build a contact sheet (render pages at low res with `pdftoppm -png -r 40`, tile them into one image with PIL, 3–4 per row with page numbers) and share it alongside the PDF. Users can scan every page at a glance and point at what to change ("page 3, the chart") without opening the file.
+
+**Edit loop:** always keep the `.html` source next to the rendered PDF. When the user asks for changes ("shorter title", "donut instead of bars", "swap page 3 and 4"), edit the source and re-render — never rebuild from scratch. Share the updated PDF and contact sheet after every edit round.
+
+**After delivering, offer the edit menu** in one short line so users know what's cheap to ask for: reword or retitle anything · swap a chart type · move, merge, or delete pages · replace images · or re-flow the whole document into a different style. Style switching is inexpensive (content and CSS are separate), so offer it explicitly if the user seemed unsure of their style pick.
 
 ## Workflow
 
-1. **Content first.** Get the final content before designing (see intake above). The user's wording is used verbatim — don't rewrite or "improve" their copy. Fix typography only (curly quotes, en/em dashes); flag factual or grammar issues rather than silently fixing them.
+1. **Content first.** Get the final content before designing (see intake above). Honor the wording choice from intake: as-is means verbatim — typography fixes only (curly quotes, en/em dashes), flag factual or grammar issues rather than silently fixing them; polish means tighten in their voice without inventing facts.
 2. **Read the style reference** for the chosen style: `references/style-editorial.md`, `references/style-soft.md`, `references/style-noir.md`, `references/style-blueprint.md`, or `references/style-modern.md`. It has the full token table, component rules, and illustration grammar.
 3. **Run `scripts/setup_fonts.sh`** once per session (installs WeasyPrint and builds all font instances for all five styles).
 4. **Copy the style's template** from `assets/` (`editorial.html`, `soft.html`, `noir.html`, `blueprint.html`, `modern.html`) and replace the content. The template demonstrates every component with correct spacing — edit content, not CSS, unless a new component is truly needed.
