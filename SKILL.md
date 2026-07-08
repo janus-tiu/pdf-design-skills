@@ -5,7 +5,7 @@ description: Generate beautifully designed PDF documents — reports, guides, pl
 
 # pdf-design-skill — designed PDF documents in five styles
 
-Turns content into a designed, multi-page PDF in one of three visual styles. The styles are complete identities, not themes: each has its own type system, palette, components, and illustration grammar. The output should look like a designer laid it out, not like a styled Word export.
+Turns content into a designed, multi-page PDF in one of five visual styles. The styles are complete identities, not themes: each has its own type system, palette, components, and illustration grammar. The output should look like a designer laid it out, not like a styled Word export.
 
 ## The styles
 
@@ -17,14 +17,14 @@ Turns content into a designed, multi-page PDF in one of three visual styles. The
 | **blueprint** | One royal blue, typewriter display type, engineer's dot grid, hand-sketched diagrams. A plan drawn with conviction. | Manifestos, frameworks, workbooks, method guides |
 | **modern** | Terracotta cover with huge staggered grotesque type; vermilion, yellow and blue arriving as flat shape blocks. Loud and graphic. | Guides, ebooks, manifestos, personal-brand docs, punchy reports |
 
-If the user doesn't name a style, ask — or infer from the content's temperature (warm/expressive → editorial, neutral/practical → soft, bold/opinionated → noir, method/framework-driven → blueprint, punchy/motivational → modern) and say which one you picked so they can switch.
+If the user doesn't name a style, prompt them to pick one at the start of the conversation (see intake below). Use the content's temperature to lead with a recommendation: warm/expressive → editorial, neutral/practical → soft, bold/opinionated → noir, method/framework-driven → blueprint, punchy/motivational → modern.
 
 ## Working with the user
 
 This skill will be used by people who aren't designers and may not know what to provide. Run a short intake before building anything:
 
-1. **Content** — if they haven't given it, ask for it. If they only have bullet points, offer to draft the copy and say so plainly (otherwise their wording is used verbatim).
-2. **Style** — offer the three styles with their one-line vibes (table below) unless they named one.
+1. **Style — always the first message.** As soon as the skill triggers, prompt the user to pick their style before anything else, listing all five with their one-line vibes from the table above. If a multiple-choice question tool is available (e.g. AskUserQuestion), use it with the five styles as options; otherwise list them in chat. If their request already hints at content, recommend one ("your content feels like **noir** — bold, opinionated") and make it the first option. Skip the prompt only when they named a style themselves.
+2. **Content** — if they haven't given it, ask for it. If they only have bullet points, offer to draft the copy and say so plainly (otherwise their wording is used verbatim).
 3. **Author line** — name or handle for the footer of every page.
 4. **Images** — ask once: "Have photos or images you want in it? Drop them in and I'll place them. None is fine too." Never ask twice; never generate images.
 
@@ -36,7 +36,7 @@ This skill will be used by people who aren't designers and may not know what to 
 
 1. **Content first.** Get the final content before designing (see intake above). The user's wording is used verbatim — don't rewrite or "improve" their copy. Fix typography only (curly quotes, en/em dashes); flag factual or grammar issues rather than silently fixing them.
 2. **Read the style reference** for the chosen style: `references/style-editorial.md`, `references/style-soft.md`, `references/style-noir.md`, `references/style-blueprint.md`, or `references/style-modern.md`. It has the full token table, component rules, and illustration grammar.
-3. **Run `scripts/setup_fonts.sh`** once per session (installs WeasyPrint and builds all font instances for all three styles).
+3. **Run `scripts/setup_fonts.sh`** once per session (installs WeasyPrint and builds all font instances for all five styles).
 4. **Copy the style's template** from `assets/` (`editorial.html`, `soft.html`, `noir.html`, `blueprint.html`, `modern.html`) and replace the content. The template demonstrates every component with correct spacing — edit content, not CSS, unless a new component is truly needed.
 5. **Render**: `python3 -m weasyprint input.html "Title.pdf"`
 6. **Verify visually — non-negotiable.** Convert every page (`pdftoppm -png -r 60`), read each image, and check: no overflow, no orphaned headings at page bottoms, footers present, page numbers sequential, charts labeled, page balance (a page that's mostly empty looks unfinished — merge it with a neighbor).
