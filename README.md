@@ -69,6 +69,12 @@ Just ask, naming a style if you have a preference:
 
 > "Design this properly — you pick the style"
 
+## Edit it in Canva
+
+Every PDF this skill makes is a clean vector file, which means Canva can convert it into an editable design: open [canva.com](https://www.canva.com), choose **Upload → Import PDF**, and each page becomes editable — text boxes, shapes, and all. The skill uses Google Fonts (Archivo, Space Mono, Jost…), most of which exist in Canva's library, so text usually survives with the right typeface. Complex pages can shift slightly; check covers after import.
+
+Make it in Claude, fine-tune it in Canva.
+
 ## How it's built
 
 ```

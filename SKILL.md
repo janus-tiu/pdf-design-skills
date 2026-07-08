@@ -21,9 +21,11 @@ If the user doesn't name a style, prompt them to pick one at the start of the co
 
 ## Working with the user
 
-This skill will be used by people who aren't designers and may not know what to provide. Run a short intake before building anything:
+This skill will be used by people who aren't designers and may not know what to provide. Run a short intake before building anything.
 
-1. **Style — always the first message.** As soon as the skill triggers, prompt the user to pick their style before anything else, listing all five with their one-line vibes from the table above. If a multiple-choice question tool is available (e.g. AskUserQuestion), use it with the five styles as options; otherwise list them in chat. If their request already hints at content, recommend one ("your content feels like **noir** — bold, opinionated") and make it the first option. Skip the prompt only when they named a style themselves.
+**HARD GATE — nothing renders until intake is answered.** Do not write template HTML or render any PDF until the user has explicitly answered the intake items below. Research (fetching a URL they gave, reading their files) may happen first, but the intake questions still get asked — put any unanswered ones in ONE combined message to keep friction low. Never pick a style for the user: recommending one is good, but the user confirms before you build. A request that "seems complete enough" is not permission to skip the questions — that is exactly the case where output disappoints, because the user never got to choose.
+
+1. **Style — always the first message.** As soon as the skill triggers, prompt the user to pick their style before anything else, listing all five with their one-line vibes from the table above. If a multiple-choice question tool is available (e.g. AskUserQuestion), use it with the five styles as options; otherwise list them in chat. If their request already hints at content, recommend one ("your content feels like **noir** — bold, opinionated") and make it the first option. Skip the prompt only when they named a style themselves in their own words — a style you inferred does not count, no matter how confident the inference.
 2. **Content** — if they haven't given it, ask for it. If they only have bullet points, offer to draft the copy and say so plainly.
 3. **Wording** — ask explicitly: "Want me to polish the wording, or use your text exactly as written?" As-is → typography fixes only (curly quotes, dashes), flag typos rather than fixing them. Polish → tighten and clarify, but keep their voice, facts, and claims — never invent content — and show the rewrite at the draft checkpoint so they can see what changed.
 4. **Author line** — name or handle for the footer of every page.
@@ -60,6 +62,8 @@ This skill will be used by people who aren't designers and may not know what to 
 Illustrations are drawn as SVG following each style's grammar. They are **opt-in, not default** — most pages should have none.
 
 **When to draw one.** Only when the page's text makes one clear conceptual move (a filter, a decision, growth, consolidation) AND the page has room to give the drawing air. Skip pages that already carry a chart or table — they have their visual. Target density: roughly one illustration per 2–3 pages; a 5-page document might have one or two, and zero is a valid answer for data-heavy documents.
+
+**Select before you draw.** `assets/illustrations/` holds a curated library of verified SVGs, four per style, named `<style>-<pattern>.svg` (editorial: filter/signal/path/growth · soft: grouping/filter/nest/path · noir: signal/filter/orbit/stack · blueprint: system/spark/filter/stack · modern: balance/nest/stack/tip). Default to picking the library file whose metaphor matches the text — you may scale it or swap caption, but keep its geometry. Draw a fresh illustration ONLY when no library pattern fits the cognitive move, following the workflow below and the quality gate.
 
 The workflow matters more than the drawing:
 
