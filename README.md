@@ -59,8 +59,6 @@ pdf-design-skill/
 └── scripts/setup_fonts.sh    # downloads + instances all fonts
 ```
 
-Claude reads the style reference, copies the matching template, replaces the content, renders with WeasyPrint, then **looks at every rendered page** and fixes what's off before handing you the file. The illustration system is inspired by [ian-xiaohei-illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) — rules and vocabulary instead of image generation.
-
 ---
 
 Questions or requests? Find me on Instagram: [@janustiu](https://instagram.com/janustiu)
